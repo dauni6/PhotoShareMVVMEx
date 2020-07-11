@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.dontsu.photosharemvvmex.R
+import com.dontsu.photosharemvvmex.model.Photo
 import com.dontsu.photosharemvvmex.util.getProgressDrawable
 import com.dontsu.photosharemvvmex.util.loadUri
 import com.dontsu.photosharemvvmex.viewmodel.SharePhotoViewModel
@@ -51,7 +52,7 @@ class PhotoFragment : Fragment() {
     private fun showPhoto(imageUri: Uri?) {
         imageUri?.let {
             frag_imageView.loadUri(imageUri, getProgressDrawable(frag_imageView.context))
-            viewModel.imageUri.value = imageUri
+            viewModel.photo.value = Photo(imageUri)
         }
     }
 
